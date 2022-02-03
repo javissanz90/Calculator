@@ -15,15 +15,15 @@ import com.sanitas.exception.ConstantException;
 @Builder
 public class RequestDTO {
 
-    @NotNull(groups = { CreateValidationGroup.class}, message = ConstantException.OPERATION_MANDATORY)
+    @NotNull(groups = {ValidationGroup.class}, message = ConstantException.OPERATION_MANDATORY)
     private String operation;
     
-    @NotNull(groups = { CreateValidationGroup.class}, message = ConstantException.OPERATOR1_MANDATORY)
+    @NotNull(groups = {ValidationGroup.class}, message = ConstantException.OPERATOR1_MANDATORY)
     private Integer op1;
     
-    @NotNull(groups = { CreateValidationGroup.class}, message = ConstantException.OPERATOR2_MANDATORY)
+    @NotNull(groups = {ValidationGroup.class}, message = ConstantException.OPERATOR2_MANDATORY)
     private Integer op2;
 
-    public static interface CreateValidationGroup extends Default {
+    public static interface ValidationGroup extends Default {
         /* Validation group */ }
 }
