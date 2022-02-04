@@ -1,8 +1,9 @@
 package com.sanitas.controller.impl;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,7 +18,6 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @Slf4j
-@Validated
 public class CalculatorControllerImpl implements CalculatorController {
 
 	private final CalculateService calculateService;
@@ -26,7 +26,7 @@ public class CalculatorControllerImpl implements CalculatorController {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public ResponseEntity<ResponseDTO> calculate(@RequestBody final RequestDTO request) {
+	public ResponseEntity<ResponseDTO> calculate(@Valid @RequestBody final RequestDTO request) {
 		log.info("Calculate the {} of {} and {}", request.getOperation(), request.getOp1(), request.getOp2());
 		return ResponseEntity.ok(calculateService.operate(request));
 	}
