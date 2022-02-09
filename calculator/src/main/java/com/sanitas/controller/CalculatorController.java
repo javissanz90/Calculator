@@ -2,7 +2,6 @@ package com.sanitas.controller;
 
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +20,7 @@ public interface CalculatorController {
      *
      * @return Object {ResponseDTO}
      */
-    @GetMapping
+    @PostMapping
     ResponseEntity<Integer> calculate(@RequestBody final RequestDTO request);
 
 }
