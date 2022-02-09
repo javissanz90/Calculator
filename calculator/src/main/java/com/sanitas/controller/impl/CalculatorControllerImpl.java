@@ -11,6 +11,7 @@ import com.sanitas.controller.CalculatorController;
 import com.sanitas.dto.RequestDTO;
 import com.sanitas.service.CalculateService;
 
+import io.corp.calculator.TracerImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -20,6 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 public class CalculatorControllerImpl implements CalculatorController {
 
 	private final CalculateService calculateService;
+	private final TracerImpl tracer;
 
 	/**
 	 * {@inheritDoc}
@@ -28,6 +30,7 @@ public class CalculatorControllerImpl implements CalculatorController {
 	public ResponseEntity<Integer> calculate(@Valid @RequestBody final RequestDTO request) {
 		log.info("Calculate the {} of {} and {}", request.getOperation(), request.getOp1(), request.getOp2());
 		Integer result = calculateService.operate(request);
+		tracer.trace(result);
 		return ResponseEntity.ok(result);
 	}
 }
