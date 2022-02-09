@@ -1,13 +1,13 @@
 package com.sanitas.utility;
 
-import com.sanitas.operations.Operation;
-
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
-import com.sanitas.operations.Sum;
+
+import com.sanitas.operations.Operation;
 import com.sanitas.operations.Subtract;
+import com.sanitas.operations.Sum;
 
 
 public class OperationSearch {
