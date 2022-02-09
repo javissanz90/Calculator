@@ -1,7 +1,6 @@
 package com.sanitas.service;
 
 import com.sanitas.dto.RequestDTO;
-import com.sanitas.dto.ResponseDTO;
 
 public interface CalculateService {
 	
@@ -10,6 +9,6 @@ public interface CalculateService {
      * @param request
      *
      */
-    ResponseDTO operate(final RequestDTO request);
+    Integer operate(final RequestDTO request);
 
 }

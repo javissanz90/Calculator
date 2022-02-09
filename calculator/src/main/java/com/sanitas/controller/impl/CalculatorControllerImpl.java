@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sanitas.controller.CalculatorController;
 import com.sanitas.dto.RequestDTO;
-import com.sanitas.dto.ResponseDTO;
 import com.sanitas.service.CalculateService;
 
 import lombok.RequiredArgsConstructor;
@@ -26,8 +25,9 @@ public class CalculatorControllerImpl implements CalculatorController {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public ResponseEntity<ResponseDTO> calculate(@Valid @RequestBody final RequestDTO request) {
+	public ResponseEntity<Integer> calculate(@Valid @RequestBody final RequestDTO request) {
 		log.info("Calculate the {} of {} and {}", request.getOperation(), request.getOp1(), request.getOp2());
-		return ResponseEntity.ok(calculateService.operate(request));
+		Integer result = calculateService.operate(request);
+		return ResponseEntity.ok(result);
 	}
 }
